@@ -33,11 +33,12 @@ bool tic:: move(int a,int b,int p)// a-row b-col p-player
 
 		if (p==1)
 		{
-			arr[a][b] == 'x';
+			arr[a][b] ='x';
+			
 		}
 		else
 		{
-			arr[a][b] == 'o';
+			arr[a][b] ='o';
 		}
 	}
 
@@ -64,6 +65,7 @@ void tic:: print()
 		for (int j = 1; j < 4; j++)
 		{
 			cout << arr[i][j] <<" ";
+			
 		}
 		cout << endl;
 	}

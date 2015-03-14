@@ -16,8 +16,10 @@ int main()
 
 	cout << "welcome to tictactoe "<<endl;
 	int p = 1;
+
 	for (int i = 0; i < 9; i++)
 	{
+		
 		bool k;
 		int a, b,gamestate ;
 		char z;
@@ -25,20 +27,21 @@ cout << "please enter co-ordinates of your move player " << p <<" eg 1,1 :"<<end
 cin >> a >> z >> b;
 
 k = tac.move(a, b, p);
-if (k == 1)
+if (k)
 {
 
 if (p==1)
 {
-	p = 2;
+	p++;
+	
 }
-if (p == 2)
+else if (p == 2)
 {
-	p = 1;
+	p--;
 }
 
 tac.print();
-gamestate = tac.isWon;
+gamestate = tac.isWon();
 }
 
 cout << gamestate;//still to do
