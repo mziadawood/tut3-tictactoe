@@ -2,7 +2,7 @@
 #include <string>
 #include <iostream>
 
-including namespace std;
+using namespace std;
 
 
 
@@ -53,6 +53,8 @@ void tic::restart()
 			arr[i][j] = ' ';
 		}
 	}
+
+	cout << "Game restarted"<<endl;
 }
 
 void tic:: print()
@@ -68,9 +70,70 @@ void tic:: print()
 
 }
 
-int tic::isWon()
+int tic::isWon()//addtohead
 {
+	//1-p1 won
+	//2-p2 won
+	//3-game still on
+	//0-draw
 
+	int result = 3; //innitialy set as draw
+
+		for (int i = 1; i < 4; i++) //checks rows
+		{
+			int j = 1;
+			if (arr[i][j] == arr[i][j + 1] && arr[i][j + 1] == arr[i][j + 2] && arr[i][j + 2] != ' ')
+			{
+
+				if (arr[i] [j] == 'x')
+			{
+				result = 1;
+			}
+			else
+			{
+				result = 2;
+			}
+
+			}
+		}
+
+
+	for (int i = 1; i < 4; i++) //checks colums
+	{
+		int j = 1;
+			if (arr[j][i] == arr[j + 1][i] && arr[j + 1][i] == arr[j + 2][i] && arr[j + 2][i] != ' ')
+			{
+
+			if (arr[j][i] == 'x')
+			{
+				result = 1;
+			}
+			else
+			{
+				result = 2;
+			}
+
+
+			}
+
+	}
+
+	if (arr[1][1] == arr[2][2] && arr[2][2] == arr[3][3] && arr[3][3] != ' ' || arr[3][1] == arr[2][2] && arr[2][2] == arr[1][3] && arr[1][3] != ' ')
+	{
+	
+		if (arr[2][2]=='x')
+		{
+			result = 1;
+		}
+		else
+		{
+			result = 2;
+		}
+
+
+	}
+
+	return result; //returns 3 if nothing happen
 
 
 }
